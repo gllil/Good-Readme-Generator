@@ -3,38 +3,87 @@ const fs = require('fs');
 const util = require('util');
 const axios = require('axios');
 
-const appendFileAsync = util.promisify(fs.appendFile);
+// const appendFileAsync = util.promisify(fs.appendFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const question = [
     {
-        type: "input",
-        message: "What is the Title of your project?",
-        name: "projectTitle"
+        type: 'input',
+        message: 'What is your Github username?',
+        name: 'username',
+        default: 'username'
     },
     {
-        type: "input",
-        message: "Please add a description",
-        name: "description"
+        type: 'input',
+        message: 'What is the title of the project?',
+        name: 'title',
+        default: 'Title'
     },
     {
-        type: "input",
-        message: "Please add table of contents",
-        name: "tableOfContents",
+        type: 'input',
+        message: 'Provide a description for your project',
+        name: 'description',
+        default: 'Description'
+    },
+    {
+        type: 'input',
+        message: 'Installation Commands',
+        name: 'installation',
+        default: 'Installation'
+    },
+    {
+        type: 'input',
+        message: 'Commmand to run test',
+        name: 'tests',
+    },
+    {
+        type: 'input',
+        message: 'What does the user need to know to use this repo',
+        name: 'usage',
+        default: 'Usage'
+    },
+    {
+        type: 'input',
+        message: 'What is your contribution',
+        name: 'contribution',
+    },
+    {
+        type: 'input',
+        message: 'License',
+        name: 'license',
+        default: 'MIT'
     },
 
 ];
 
 function writeToFile(fileName, data) {
 
+writeFileAsync(fileName, data).then(function(){
+    console.log("README.md file created")
+})
+
 }
+
+
+
 
 function init() {
-
+    inquirer.prompt(question).then(function(data){
+        const queryURL = `https://api.github.com/users/${response.github}`;
+        axios.get(queryURL).then(function(res){
+            const info = {
+                username: data.username,
+                title: data.title,
+                description: data.description,
+                installation: data.installation,
+                test: data.test,
+                usage: data.usage,
+                contribution: data.contribution,
+                license: data.license
+            }
+        })
+    })
+    
 }
 
-inquirer.prompt(question).then(function(res){
-    const {  }
-    appendFileAsync("README.md", )
-})
 init();
