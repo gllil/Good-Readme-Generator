@@ -3,7 +3,7 @@ const fs = require('fs');
 const util = require('util');
 const axios = require('axios');
 
-const genMrkDwn = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // const appendFileAsync = util.promisify(fs.appendFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -12,7 +12,7 @@ const question = [
     {
         type: 'input',
         message: 'What is your Github username?',
-        name: 'username',
+        name: 'ghusername',
         default: 'username'
     },
     {
@@ -74,24 +74,25 @@ writeFileAsync(fileName, data).then(function(){
 
 function init() {
     inquirer.prompt(question).then(function(data){
-        const queryURL = `https://api.github.com/users/${response.github}`;
+        const queryURL = `https://api.github.com/users/${data.ghusername}`;
         axios.get(queryURL).then(function(res){
             const info = {
                 username: data.username,
                 title: data.title,
                 description: data.description,
+                tableOfCOntents: data.tableOfCOntents,
                 installation: data.installation,
                 test: data.test,
                 usage: data.usage,
                 contribution: data.contribution,
                 license: data.license,
 
-                name: res.info.login,
+                name: res.data.login,
                 email: "garyjllil@gmail.com",
-                picture: res.info.avatar_url,
+                picture: res.data.avatar_url,
             }
-            const content = genMrkDwn(info);
-            writeToFile("README.md", content);
+            const content = generateMarkdown(info);
+            writeToFile("READMEtest.md", content);
         }).catch(function(err){
             if(err) throw err;
         })
