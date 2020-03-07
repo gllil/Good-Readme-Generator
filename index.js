@@ -3,6 +3,8 @@ const fs = require('fs');
 const util = require('util');
 const axios = require('axios');
 
+const genMrkDwn = require('./utils/generateMarkdown');
+
 // const appendFileAsync = util.promisify(fs.appendFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -61,6 +63,9 @@ function writeToFile(fileName, data) {
 writeFileAsync(fileName, data).then(function(){
     console.log("README.md file created")
 })
+.catch(function(err){
+    console.log(err);
+})
 
 }
 
@@ -79,9 +84,21 @@ function init() {
                 test: data.test,
                 usage: data.usage,
                 contribution: data.contribution,
-                license: data.license
+                license: data.license,
+
+                name: res.info.login,
+                email: "garyjllil@gmail.com",
+                picture: res.info.avatar_url,
             }
+            const content = genMrkDwn(info);
+            writeToFile("README.md", content);
+        }).catch(function(err){
+            if(err) throw err;
         })
+        
+    }).catch(function(err){
+        console.log(err);
+            
     })
     
 }
