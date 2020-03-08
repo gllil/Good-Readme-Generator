@@ -1,10 +1,10 @@
 
-  !https://img.shields.io/badge/version-1.0-orange
-# Title 
+  ![Version](https://img.shields.io/badge/version-1.0-orange)
+# Good ReadMe Generator 
 
 ## Description
 
-Description 
+This application allows you to create a reademe generator via node.js. This will ask you a series of questions to define values and input them in a readme file. 
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ Description
 To install project dependencies run:
 
 ```
-Installation
+npm i
 ```
 
 ## Tests
@@ -33,7 +33,7 @@ undefined
 
 ## Usage
 
-Usage
+The user needs to know node.js and javascript.
 
 ## License
 
@@ -46,4 +46,4 @@ undefined
 ## Questions?
 
 <img src="https://avatars3.githubusercontent.com/u/57138352?v=4" alt="avatar-picture" style="border-radius: 50px" width="100px" />
-Have any questions? Want to collaborate on a project? Shoot me an [email](garyjllil@gmail.com)
+Have any questions?  [Email](garyjllil@gmail.com) me. 

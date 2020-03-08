@@ -47,7 +47,7 @@ ${info.contributing}
 ## Questions?
 
 <img src="${info.picture}" alt="avatar-picture" style="border-radius: 50px" width="100px" />
-Have any questions? Want to collaborate on a project? Shoot me an [email](${info.email})
+Have any questions?  [Email](${info.email}) me. 
 `;
 }
 
