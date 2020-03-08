@@ -45,5 +45,5 @@ undefined
 ## Questions?
 
 <img src="https://avatars3.githubusercontent.com/u/57138352?v=4" alt="avatar-picture" style="border-radius: 50px" width="100px" />
-Have any questions?  ![Email](garyjllil@gmail.com) me. 
+Have any questions?  [Email Me](mailto:garyjllil@gmail.com?subject=[GitHub]%20Source%20Han%20Sans). 
 
